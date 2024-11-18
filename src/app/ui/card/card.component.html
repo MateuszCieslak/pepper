@@ -1,0 +1,22 @@
+<mat-card appearance="outlined">
+    <mat-card-header>
+        <mat-card-title [attr.data-testid]="'card__title'">
+            {{ title }}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="subtitle" [attr.data-testid]="'card__subtitle'">
+            {{ subtitle }}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="key-value-table">
+            <tr *ngFor="let prop of props" [attr.data-testid]="'card__prop'">
+                <td class="key" [attr.data-testid]="'card__prop-key'">
+                    {{ prop.key }}
+                </td>
+                <td class="value" [attr.data-testid]="'card__prop-value'">
+                    {{ prop.value }}
+                </td>
+            </tr>
+        </table>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,20 @@
+<div *ngIf="(state$ | async)?.view === 'home'">
+    <p>
+        Choose the type of the game:
+    </p>
+
+    <div>
+        <mat-radio-group aria-label="Select the type" [formControl]="gameType">
+            <mat-radio-button [attr.data-testid]="'game-setup__people-radio'" value="people">
+                People
+            </mat-radio-button>
+            <mat-radio-button [attr.data-testid]="'game-setup__starships-radio'" value="starships">
+                Starships
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <button mat-raised-button (click)="start()" [attr.data-testid]="'game-setup__start-btn'">
+        Start!
+    </button>
+</div>

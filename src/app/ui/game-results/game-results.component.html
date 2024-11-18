@@ -1,0 +1,24 @@
+<ng-container *ngIf="state$ | async as state">
+    <section *ngIf="state.view === 'end'" class="game-results">
+        <h2>Game over</h2>
+
+        <h3>
+            @if(state.players[0].score === state.players[1].score) {
+                It's a draw
+            } @else if (state.players[0].score > state.players[1].score) {
+                {{ state.players[0].name }} wins
+            } @else {
+                {{ state.players[1].name }} wins
+            }
+        </h3>
+
+        <button 
+            mat-raised-button 
+            color="accent" 
+            (click)="again()"
+            [attr.data-testid]="'game-results__restart-btn'"
+        >
+            Play again
+        </button>
+    </section>
+</ng-container>

@@ -1,0 +1,32 @@
+<ng-container *ngIf="state$ | async as state">
+<div *ngIf="state.view === 'game'">
+    <h2>Battle of {{ state.gameType }}</h2>
+
+    <section class="game">
+      <div class="game__controls">
+        <button 
+          mat-flat-button 
+          color="accent" 
+          (click)="play()"
+          [attr.data-testid]="'game__play-btn'"
+        >
+          Play
+        </button>
+        <button 
+          mat-stroked-button 
+          color="accent" 
+          (click)="end()"
+          [attr.data-testid]="'game__end-btn'"
+        >
+          End
+        </button>
+      </div>
+
+      <app-player [player]="state.players[0]">
+      </app-player>
+
+      <app-player [player]="state.players[1]">
+    </app-player>
+    </section>
+  </div>
+  </ng-container>
